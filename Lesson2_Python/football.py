@@ -1,5 +1,3 @@
-import sys
-
 sports_markets = [
     {"city": "Arizona", "nfl": "Cardinals", "mlb": "Diamondbacks", "nba": "Suns", "nhl": "Coyotes"},
     {"city": "Atlanta", "nfl": "Falcons", "mlb": "Braves", "nba": "Hawks"},
@@ -44,6 +42,3 @@ for entry in sports_markets:
             print(f"The {league} team in {city_search} is the {entry.get(league)}")  
         except KeyError:
             print(f"There is no {league} team in {city_search}.")
-    elif city_search!= entry["city"]:
-        print(f"There is no {league} team in {city_search}.")
-        sys.exit(1)
