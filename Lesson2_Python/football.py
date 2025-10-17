@@ -1,3 +1,5 @@
+import sys
+
 sports_markets = [
     {"city": "Arizona", "nfl": "Cardinals", "mlb": "Diamondbacks", "nba": "Suns", "nhl": "Coyotes"},
     {"city": "Atlanta", "nfl": "Falcons", "mlb": "Braves", "nba": "Hawks"},
@@ -32,12 +34,16 @@ sports_markets = [
     {"city": "Washington", "nfl": "Commanders", "mlb": "Nationals", "nba": "Wizards", "nhl": "Capitals"}
 ]
 
-city_search = (input("City: "))
-league = (input("League: "))
+city_search = (input("City: ").capitalize())
+league = (input("League: ").lower())
 
 for entry in sports_markets:
-    if league not in entry:
+    if city_search == entry["city"]:
+        try:
+            entry.get(league) == entry[league]
+            print(f"The {league} team in {city_search} is the {entry.get(league)}")  
+        except KeyError:
+            print(f"There is no {league} team in {city_search}.")
+    elif city_search!= entry["city"]:
         print(f"There is no {league} team in {city_search}.")
-    elif city_search == entry["city"]:
-        print(f"The {league} team in {city_search} is the {entry.get(league)}")
-    
+        sys.exit(1)
